@@ -1,0 +1,98 @@
+@charset "ISO-8859-1";
+
+table{
+	border: solid 1px #111d5e;
+}
+
+.formulario{	
+	border: solid 1px #111d5e;		
+}
+
+.codigo{
+	grid-area: codigo;
+}
+
+.descripcion{
+	grid-area: descripcion;
+}
+
+.unitario{
+	grid-area: unitario;
+}
+
+.subtotal{
+	grid-area: subtotal;
+}
+
+.cantidad{
+	grid-area: cantidad;
+}
+
+.titulo{
+	text-align: center;
+}
+
+.cuadro{
+	width: 960px;
+	height: 10px;
+	float: left;
+}
+
+.cuadro1{
+	width: 320px;
+	height: 10px;
+	float: left;
+}
+
+.almacenar{
+	font-size: 16px;
+	width: 150px;
+	height: 30px;
+	float: center;
+}
+
+.contenedor{
+	width: 950px;
+	height: auto;
+	float: left;
+}
+
+.contenedor1{
+	width: 500px;
+	height: 100px;
+	float: left;
+}
+
+.contenedor2{
+	width: 130px;
+	height: 100px;
+	float: left;
+}
+
+.guardar{
+	font-size: 16px;
+	width: 100px;
+	height: 100px;
+}
+
+.mensaje{
+	color: red;
+}
+
+.calculos1{
+	margin-bottom: 2px;
+	align: rigth;
+	margin-left: 645px;
+}
+
+.calculos2{
+	margin-bottom: 2px;
+	align: rigth;
+	margin-left: 689px;
+}
+
+.calculos3{
+	margin-bottom: 2px;
+	align: rigth;
+	margin-left: 675px;
+}
