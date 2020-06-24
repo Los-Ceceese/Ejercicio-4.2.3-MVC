@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 /**
@@ -20,26 +21,23 @@ public class ControladorProductos extends HttpServlet {
 	private ModeloProductos modeloProducto;
 
 	// Pool de conexiones
-
-	@Resource(name = "jdbc/Factura")
+	@Resource(name = "jdbc/Productos")
 	private DataSource conexionPool;
 
 	// Metodo init se ejecuta al iniciar el servlet, es el simil del metodo main
-
 	@Override
 	public void init() throws ServletException {
 		super.init();
-
 		try {
 
 			// Establece la conexion con el Pool de conexiones
-
 			modeloProducto = new ModeloProductos(conexionPool);
 
 		} catch (Exception e) {
+			System.out.println("Falló conexión");
 			throw new ServletException(e);
 		}
-	}	
+	}
 
 	public ControladorProductos() {
 		super();
@@ -66,9 +64,11 @@ public class ControladorProductos extends HttpServlet {
 			// Envía el requerimiento al .jsp
 
 			RequestDispatcher despachador = request.getRequestDispatcher("/Factura.jsp");
-			despachador.forward(request, response);
 
+			despachador.forward(request, response);
+			
 		} catch (Exception e) {
+			System.out.println("Falló Almacenamiento");
 			e.printStackTrace();
 		}
 	}

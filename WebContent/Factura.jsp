@@ -1,44 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="java.util.*, cl.factura.web.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/estilo.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/estilo.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Factura</title>
 </head>
-<%
-	//Esta lista almacena lo que se le está envíando (request) desde el controlador 
-
-	List<Productos> listaProductos = (List<Productos>) request.getAttribute("LISTAPRODUCTOS");
-
-%>
 <body>
-	<table>
-		<tr>
-			<td>ID</td>
-			<td>Descripcion</td>
-			<td>Precio Unitario</td>
-		</tr>
-
-<%-- <%for(Productos temporal:listaProductos){%> --%>
-
-<!-- 		<tr> -->
-<%-- 			<td><%=temporal.getIdProducto()%></td> --%>
-<%-- 			<td><%=temporal.getDescripcion()%></td> --%>
-<%-- 			<td><%=temporal.getPrecioUnit()%></td> --%>
-<!-- 		</tr> -->
-<%-- <%} %> --%>
-	</table>
-
-
-<%= listaProductos  %> 
-
-
 	<h1 class="titulo">Gestor de Facturas</h1>
 	<table>
 		<tr>
@@ -62,76 +36,18 @@
 				<th>Precio Unit</th>
 				<th>SubTotal</th>
 			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
-			<tr>
-				<td class="celda"><input type="text" size=10 name="numero"></td>
-				<td class="celda"><input type="text" size=60 name="descripcion"></td>
-				<td class="celda"><input type="text" size=15 name="cantidad"></td>
-				<td class="celda"><input type="text" size=15 name="pu"></td>
-				<td class="celda"><input type="text" size=15 name="subtotal"></td>
-			</tr>
+			<c:forEach var="tempFact" items="${LISTAPRODUCTOS}">
+				<tr>
+					<td class="celda"><input value="${tempFact.idProducto}"
+						type="text" size=10 name="numero"></td>
+					<td class="celda"><input value="${tempFact.descripcion}"
+						type="text" size=60 name="descripcion"></td>
+					<td class="celda"><input type="text" size=15 name="cantidad"></td>
+					<td class="celda"><input value="${tempFact.precioUnit}"
+						type="text" size=15 name="pu"></td>
+					<td class="celda"><input type="text" size=15 name="subtotal"></td>
+				</tr>
+			</c:forEach>
 		</table>
 		<br>
 	</form>

@@ -1,5 +1,5 @@
 <Context>
-	<Resource name="jdbc/Factura" auth="Container" type="javax.sql.DataSource"
+	<Resource name="jdbc/Productos" auth="Container" type="javax.sql.DataSource"
 			  maxActive="15" maxIdle="3" maxWait="5000"
 			  username="ejercicio4.2.3" password="Fruna" 
 			  driverClassName="oracle.jdbc.driver.OracleDriver"

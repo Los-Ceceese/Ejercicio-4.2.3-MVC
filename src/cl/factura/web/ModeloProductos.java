@@ -23,20 +23,16 @@ public class ModeloProductos {
 		ResultSet tablaProductos = null;
 
 		// Establece conexión
-
 		conexionProductos = origenDatos.getConnection();
 
 		// Sentencia y delcaración SQL
-
 		String sentenciaSQL = "SELECT * FROM PRODUCTOS";
 		declaracionProductos = conexionProductos.createStatement();
 
 		// Ejecución sentencia SQL
-
 		tablaProductos = declaracionProductos.executeQuery(sentenciaSQL);
 
 		// Recorrer la Tabla Virtual
-
 		while (tablaProductos.next()) {
 
 			int idProducto = tablaProductos.getInt("ID");
@@ -48,9 +44,6 @@ public class ModeloProductos {
 			productos.add(productoTemporal);
 
 		}
-
 		return productos;
-
 	}
-
 }
